@@ -7,35 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C642FEB7221A9AB700E0329E /* OWRuntimeData.m in Sources */ = {isa = PBXBuildFile; fileRef = C642FEB6221A9AB700E0329E /* OWRuntimeData.m */; };
-		C642FEB8221A9AB700E0329E /* OWRuntimeData.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C642FEB5221A9AB700E0329E /* OWRuntimeData.h */; };
-		C642FEC1221A9C2B00E0329E /* OWRuntimeDataConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = C642FEC0221A9C2B00E0329E /* OWRuntimeDataConfig.m */; };
+		C685E73B221BAB4C002206C4 /* OWRuntimeData.h in Headers */ = {isa = PBXBuildFile; fileRef = C685E739221BAB4C002206C4 /* OWRuntimeData.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C685E749221BAED4002206C4 /* OWRuntimeDataConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = C685E742221BAED4002206C4 /* OWRuntimeDataConfig.h */; };
+		C685E74A221BAED4002206C4 /* OWRuntimeDataValue.h in Headers */ = {isa = PBXBuildFile; fileRef = C685E743221BAED4002206C4 /* OWRuntimeDataValue.h */; };
+		C685E74B221BAED4002206C4 /* OWRuntimeDataConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = C685E744221BAED4002206C4 /* OWRuntimeDataConfig.m */; };
+		C685E74C221BAED4002206C4 /* OWRuntimeDataValue.m in Sources */ = {isa = PBXBuildFile; fileRef = C685E745221BAED4002206C4 /* OWRuntimeDataValue.m */; };
+		C685E74D221BAED4002206C4 /* OWRuntimeData.m in Sources */ = {isa = PBXBuildFile; fileRef = C685E746221BAED4002206C4 /* OWRuntimeData.m */; };
+		C685E74E221BAED4002206C4 /* OWNetworkProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = C685E748221BAED4002206C4 /* OWNetworkProtocol.h */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		C642FEB0221A9AB700E0329E /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "include/$(PRODUCT_NAME)";
-			dstSubfolderSpec = 16;
-			files = (
-				C642FEB8221A9AB700E0329E /* OWRuntimeData.h in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
-		C642FEB2221A9AB700E0329E /* libOWRuntimeData.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libOWRuntimeData.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		C642FEB5221A9AB700E0329E /* OWRuntimeData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OWRuntimeData.h; sourceTree = "<group>"; };
-		C642FEB6221A9AB700E0329E /* OWRuntimeData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OWRuntimeData.m; sourceTree = "<group>"; };
-		C642FEBF221A9C2B00E0329E /* OWRuntimeDataConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OWRuntimeDataConfig.h; sourceTree = "<group>"; };
-		C642FEC0221A9C2B00E0329E /* OWRuntimeDataConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OWRuntimeDataConfig.m; sourceTree = "<group>"; };
-		C642FEC3221A9ED300E0329E /* OWNetworkProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OWNetworkProtocol.h; sourceTree = "<group>"; };
+		C685E736221BAB4C002206C4 /* OWRuntimeData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OWRuntimeData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C685E739221BAB4C002206C4 /* OWRuntimeData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OWRuntimeData.h; sourceTree = "<group>"; };
+		C685E73A221BAB4C002206C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C685E742221BAED4002206C4 /* OWRuntimeDataConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OWRuntimeDataConfig.h; sourceTree = "<group>"; };
+		C685E743221BAED4002206C4 /* OWRuntimeDataValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OWRuntimeDataValue.h; sourceTree = "<group>"; };
+		C685E744221BAED4002206C4 /* OWRuntimeDataConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OWRuntimeDataConfig.m; sourceTree = "<group>"; };
+		C685E745221BAED4002206C4 /* OWRuntimeDataValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OWRuntimeDataValue.m; sourceTree = "<group>"; };
+		C685E746221BAED4002206C4 /* OWRuntimeData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OWRuntimeData.m; sourceTree = "<group>"; };
+		C685E748221BAED4002206C4 /* OWNetworkProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OWNetworkProtocol.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		C642FEAF221A9AB700E0329E /* Frameworks */ = {
+		C685E733221BAB4C002206C4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -45,60 +39,78 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C642FEA9221A9AB700E0329E = {
+		C685E72C221BAB4C002206C4 = {
 			isa = PBXGroup;
 			children = (
-				C642FEB4221A9AB700E0329E /* OWRuntimeData */,
-				C642FEB3221A9AB700E0329E /* Products */,
+				C685E738221BAB4C002206C4 /* OWRuntimeData */,
+				C685E737221BAB4C002206C4 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		C642FEB3221A9AB700E0329E /* Products */ = {
+		C685E737221BAB4C002206C4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C642FEB2221A9AB700E0329E /* libOWRuntimeData.a */,
+				C685E736221BAB4C002206C4 /* OWRuntimeData.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C642FEB4221A9AB700E0329E /* OWRuntimeData */ = {
+		C685E738221BAB4C002206C4 /* OWRuntimeData */ = {
 			isa = PBXGroup;
 			children = (
-				C642FEC2221A9EC200E0329E /* protocol */,
-				C642FEBE221A9C1800E0329E /* model */,
-				C642FEB5221A9AB700E0329E /* OWRuntimeData.h */,
-				C642FEB6221A9AB700E0329E /* OWRuntimeData.m */,
+				C685E741221BAED4002206C4 /* model */,
+				C685E747221BAED4002206C4 /* protocol */,
+				C685E739221BAB4C002206C4 /* OWRuntimeData.h */,
+				C685E746221BAED4002206C4 /* OWRuntimeData.m */,
+				C685E73A221BAB4C002206C4 /* Info.plist */,
 			);
 			path = OWRuntimeData;
 			sourceTree = "<group>";
 		};
-		C642FEBE221A9C1800E0329E /* model */ = {
+		C685E741221BAED4002206C4 /* model */ = {
 			isa = PBXGroup;
 			children = (
-				C642FEBF221A9C2B00E0329E /* OWRuntimeDataConfig.h */,
-				C642FEC0221A9C2B00E0329E /* OWRuntimeDataConfig.m */,
+				C685E742221BAED4002206C4 /* OWRuntimeDataConfig.h */,
+				C685E744221BAED4002206C4 /* OWRuntimeDataConfig.m */,
+				C685E743221BAED4002206C4 /* OWRuntimeDataValue.h */,
+				C685E745221BAED4002206C4 /* OWRuntimeDataValue.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
 		};
-		C642FEC2221A9EC200E0329E /* protocol */ = {
+		C685E747221BAED4002206C4 /* protocol */ = {
 			isa = PBXGroup;
 			children = (
-				C642FEC3221A9ED300E0329E /* OWNetworkProtocol.h */,
+				C685E748221BAED4002206C4 /* OWNetworkProtocol.h */,
 			);
 			path = protocol;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		C685E731221BAB4C002206C4 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C685E74A221BAED4002206C4 /* OWRuntimeDataValue.h in Headers */,
+				C685E73B221BAB4C002206C4 /* OWRuntimeData.h in Headers */,
+				C685E749221BAED4002206C4 /* OWRuntimeDataConfig.h in Headers */,
+				C685E74E221BAED4002206C4 /* OWNetworkProtocol.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
-		C642FEB1221A9AB700E0329E /* OWRuntimeData */ = {
+		C685E735221BAB4C002206C4 /* OWRuntimeData */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C642FEBB221A9AB700E0329E /* Build configuration list for PBXNativeTarget "OWRuntimeData" */;
+			buildConfigurationList = C685E73E221BAB4C002206C4 /* Build configuration list for PBXNativeTarget "OWRuntimeData" */;
 			buildPhases = (
-				C642FEAE221A9AB700E0329E /* Sources */,
-				C642FEAF221A9AB700E0329E /* Frameworks */,
-				C642FEB0221A9AB700E0329E /* CopyFiles */,
+				C685E731221BAB4C002206C4 /* Headers */,
+				C685E732221BAB4C002206C4 /* Sources */,
+				C685E733221BAB4C002206C4 /* Frameworks */,
+				C685E734221BAB4C002206C4 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -106,54 +118,65 @@
 			);
 			name = OWRuntimeData;
 			productName = OWRuntimeData;
-			productReference = C642FEB2221A9AB700E0329E /* libOWRuntimeData.a */;
-			productType = "com.apple.product-type.library.static";
+			productReference = C685E736221BAB4C002206C4 /* OWRuntimeData.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		C642FEAA221A9AB700E0329E /* Project object */ = {
+		C685E72D221BAB4C002206C4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = Rango;
 				TargetAttributes = {
-					C642FEB1221A9AB700E0329E = {
+					C685E735221BAB4C002206C4 = {
 						CreatedOnToolsVersion = 10.1;
 					};
 				};
 			};
-			buildConfigurationList = C642FEAD221A9AB700E0329E /* Build configuration list for PBXProject "OWRuntimeData" */;
+			buildConfigurationList = C685E730221BAB4C002206C4 /* Build configuration list for PBXProject "OWRuntimeData" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = C642FEA9221A9AB700E0329E;
-			productRefGroup = C642FEB3221A9AB700E0329E /* Products */;
+			mainGroup = C685E72C221BAB4C002206C4;
+			productRefGroup = C685E737221BAB4C002206C4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C642FEB1221A9AB700E0329E /* OWRuntimeData */,
+				C685E735221BAB4C002206C4 /* OWRuntimeData */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		C685E734221BAB4C002206C4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
-		C642FEAE221A9AB700E0329E /* Sources */ = {
+		C685E732221BAB4C002206C4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C642FEC1221A9C2B00E0329E /* OWRuntimeDataConfig.m in Sources */,
-				C642FEB7221A9AB700E0329E /* OWRuntimeData.m in Sources */,
+				C685E74C221BAED4002206C4 /* OWRuntimeDataValue.m in Sources */,
+				C685E74B221BAED4002206C4 /* OWRuntimeDataConfig.m in Sources */,
+				C685E74D221BAED4002206C4 /* OWRuntimeData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		C642FEB9221A9AB700E0329E /* Debug */ = {
+		C685E73C221BAB4C002206C4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -187,6 +210,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -209,10 +233,12 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		C642FEBA221A9AB700E0329E /* Release */ = {
+		C685E73D221BAB4C002206C4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -246,6 +272,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -262,28 +289,54 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
-		C642FEBC221A9AB700E0329E /* Debug */ = {
+		C685E73F221BAB4C002206C4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 8W6G82E7Q8;
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = OWRuntimeData/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.owops.OWRuntimeData;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		C642FEBD221A9AB700E0329E /* Release */ = {
+		C685E740221BAB4C002206C4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 8W6G82E7Q8;
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = OWRuntimeData/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.owops.OWRuntimeData;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -292,25 +345,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C642FEAD221A9AB700E0329E /* Build configuration list for PBXProject "OWRuntimeData" */ = {
+		C685E730221BAB4C002206C4 /* Build configuration list for PBXProject "OWRuntimeData" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C642FEB9221A9AB700E0329E /* Debug */,
-				C642FEBA221A9AB700E0329E /* Release */,
+				C685E73C221BAB4C002206C4 /* Debug */,
+				C685E73D221BAB4C002206C4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C642FEBB221A9AB700E0329E /* Build configuration list for PBXNativeTarget "OWRuntimeData" */ = {
+		C685E73E221BAB4C002206C4 /* Build configuration list for PBXNativeTarget "OWRuntimeData" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C642FEBC221A9AB700E0329E /* Debug */,
-				C642FEBD221A9AB700E0329E /* Release */,
+				C685E73F221BAB4C002206C4 /* Debug */,
+				C685E740221BAB4C002206C4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = C642FEAA221A9AB700E0329E /* Project object */;
+	rootObject = C685E72D221BAB4C002206C4 /* Project object */;
 }

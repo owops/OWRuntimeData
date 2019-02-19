@@ -6,17 +6,30 @@
 //  Copyright © 2019 Rango. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
-#import "model/OWRuntimeDataConfig.h"
+#import "OWRuntimeDataConfig.h"
 
+//! Project version number for OWRuntimeData.
+FOUNDATION_EXPORT double OWRuntimeDataVersionNumber;
+
+//! Project version string for OWRuntimeData.
+FOUNDATION_EXPORT const unsigned char OWRuntimeDataVersionString[];
 @interface OWRuntimeData : NSObject
 
 + (OWRuntimeData *)sharedInstance;
 
 + (void)config:(OWRuntimeDataConfig *)config;
 
-- (id)objectForKey:(id)aKey;
++ (id)objectForKey:(NSString *)aKey;
 
-- (void)setObject:(id)anObject forKey:(id<NSCopying>)aKey;
++ (BOOL)setObject:(id)anObject forKey:(NSString *)aKey;
+
+- (id)objectForKey:(NSString *)aKey;
+
+// default forceUpdate: true
+- (BOOL)setObject:(id)anObject forKey:(NSString *)aKey;
+
+- (BOOL)setObject:(id)anObject forKey:(NSString *)aKey forceUpdate:(BOOL)forceUpdate;
 
 @end

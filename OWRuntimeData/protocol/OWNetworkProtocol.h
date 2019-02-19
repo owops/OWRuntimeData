@@ -11,7 +11,7 @@
 
 @protocol OWNetworkHandler <NSObject>
 
-- (void)downloadHandler; 
+- (void)downloadHandler;
 
 @end
 
