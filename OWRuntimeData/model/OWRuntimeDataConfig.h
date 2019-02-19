@@ -11,19 +11,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef NS_ENUM(NSInteger, CACHE_DELTATIME) {
-    CACHE_DELTATIME_DISABLE = 0,
-    CACHE_DELTATIME_ALWAYS = -1,
-};
-
 typedef id(^OWNetworkHandler)(OWDataFunction function);
 
 @interface OWRuntimeDataConfig : NSObject
 
-//数据缓存时间
-@property (nonatomic, assign) NSInteger deltaTime;
-
-//网络执行Handler
+//网络执行Handler 统一获取方式
 @property (nonatomic, copy) OWNetworkHandler handler;
 
 //等待时间
