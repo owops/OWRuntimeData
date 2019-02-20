@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 #import "OWRuntimeDataConfig.h"
+#import "OWNetworkProtocol.h"
 
 //! Project version number for OWRuntimeData.
 FOUNDATION_EXPORT double OWRuntimeDataVersionNumber;
@@ -50,23 +51,19 @@ typedef void(^OWObjectBlock)(id data);
 
  @param anObject object
  @param aKey key
- @param forceUpdate if need force update data
  @return success
  */
-- (BOOL)setObject:(id)anObject forKey:(NSString *)aKey forceUpdate:(BOOL)forceUpdate;
-//default forceUpdate: true
 + (BOOL)setObject:(id)anObject forKey:(NSString *)aKey;
-//default forceUpdate: true
 - (BOOL)setObject:(id)anObject forKey:(NSString *)aKey;
 
 /**
  how to load data if data is not exist
 
- @param function id(^OWDataFunction)(id request);
+ @param handler network handler
  @param aKey key
  @return success
  */
-+ (BOOL)registFunction:(OWDataFunction)function forKey:(NSString *)aKey;
-- (BOOL)registFunction:(OWDataFunction)function forKey:(NSString *)aKey;
++ (BOOL)registerHandler:(id<OWNetworkHandlerProtocol>)handler forKey:(NSString *)aKey;
+- (BOOL)registerHandler:(id<OWNetworkHandlerProtocol>)handler forKey:(NSString *)aKey;
 
 @end

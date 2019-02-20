@@ -15,8 +15,8 @@ typedef id(^OWNetworkHandler)(OWDataFunction function);
 
 @interface OWRuntimeDataConfig : NSObject
 
-//网络执行Handler 统一获取方式
-@property (nonatomic, copy) OWNetworkHandler handler;
+//网络执行Handler 默认的获取方式
+@property (nonatomic, strong) id<OWNetworkHandlerProtocol> handler;
 
 //等待时间
 @property (nonatomic, assign) NSInteger waiting;

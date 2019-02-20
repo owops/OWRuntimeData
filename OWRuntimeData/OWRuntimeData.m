@@ -68,20 +68,37 @@ static OWRuntimeData *_sharedManager = nil;
 
 - (id)objectForKey:(NSString *)aKey {
     __block id result;
-    
     if(aKey && aKey.length > 0) {
-        if([[self config] handler]) {
+        OWRuntimeDataValue *value = [self valueForKey:aKey];
+        BOOL forceFetch = NO;
+        if([value deltaTime] != CACHE_DELTATIME_ALWAYS &&
+           [value date] &&
+           [value date] timeIntervalSinceDate:[NSDate dateWithTimeIntervalSinceNow:0]) {
+            forceFetch = YES;
+        }
+        if([value deltaTime] == CACHE_DELTATIME_DISABLE) {
+            forceFetch = YES;
+        }
+        id<OWNetworkHandlerProtocol> handler;
+        if([value networkHandler]) { //优先取当前handler
+            handler = [value networkHandler];
+        } else if([[self config] handler]) {
+            handler = [[self config] handler];
+        }
+        if(handler && [handler conformsToProtocol:@protocol(OWNetworkHandlerProtocol)]) {
+            //fetch放置于新的子线程去做，同时阻塞当前线程，因为数据需要保证优先获取，因此将该线程优先级调整为高
             dispatch_semaphore_t signal = dispatch_semaphore_create(0);
-            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-                id response = [self config].handler([[[self runtimeData] objectForKey:aKey] function]);
-                [[[self runtimeData] objectForKey:aKey] setData:response];
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+                id response = [handler fetch];
+                [self setObject:response forKey:aKey];
                 result = response;
                 dispatch_semaphore_signal(signal);
             });
             dispatch_semaphore_wait(signal, dispatch_time(DISPATCH_TIME_NOW, [[self config] waiting] * NSEC_PER_SEC));
         }
+        return [value data];
     }
-    return result;
+    return nil;
 }
 + (id)objectForKey:(NSString *)aKey {
     return [[OWRuntimeData sharedInstance] objectForKey:aKey];
@@ -89,7 +106,8 @@ static OWRuntimeData *_sharedManager = nil;
 - (void)objectForKeyAsync:(NSString *)aKey callback:(OWObjectBlock)block {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         id result = [self objectForKey:aKey];
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        //异步获取，主线程回调
+        dispatch_async(dispatch_get_main_queue(), ^{
             if(block) {
                 block(result);
             }
@@ -100,38 +118,28 @@ static OWRuntimeData *_sharedManager = nil;
     [[OWRuntimeData sharedInstance] objectForKeyAsync:aKey callback:block];
 }
 
-- (BOOL)setObject:(id)anObject forKey:(NSString *)aKey forceUpdate:(BOOL)forceUpdate {
+- (BOOL)setObject:(id)anObject forKey:(NSString *)aKey {
     if(anObject && aKey && aKey.length > 0 ) {
-        if(!forceUpdate && [self objectForKey:aKey]) {
-            return NO;
-        }
-        [[self runtimeData] setObject:anObject forKey:aKey];
+        OWRuntimeDataValue *value = [self valueForKey:aKey];
+        [value setData:anObject];
+        [value setDate:[NSDate dateWithTimeIntervalSinceNow:0]];
         return YES;
     }
     return NO;
-}
-- (BOOL)setObject:(id)anObject forKey:(NSString *)aKey {
-    return [self setObject:anObject forKey:aKey forceUpdate:YES];
 }
 + (BOOL)setObject:(id)anObject forKey:(NSString *)aKey {
     return [[OWRuntimeData sharedInstance] setObject:anObject forKey:aKey];
 }
 
-- (BOOL)registFunction:(OWDataFunction)function forKey:(NSString *)aKey {
+- (BOOL)registerHandler:(id<OWNetworkHandlerProtocol>)handler forKey:(NSString *)aKey {
     if(!aKey || aKey.length == 0) {
         return NO;
     }
-    OWRuntimeDataValue *dataValue;
-    if([[[self runtimeData] allKeys] containsObject:aKey]) {
-        dataValue = [[self runtimeData] objectForKey:aKey];
-    } else {
-        dataValue = [[OWRuntimeDataValue alloc] init];
-        [[self runtimeData] setObject:dataValue forKey:aKey];
-    }
-    [dataValue setFunction:function];
+    OWRuntimeDataValue *value = [self valueForKey:aKey];
+    [value setNetworkHandler:handler];
     return YES;
 }
-+ (BOOL)registFunction:(OWDataFunction)function forKey:(NSString *)aKey {
++ (BOOL)registerHandler:(id<OWNetworkHandlerProtocol>)handler forKey:(NSString *)aKey {
     return [[OWRuntimeData sharedInstance] registFunction:function forKey:aKey];
 }
 

@@ -9,9 +9,10 @@
 #ifndef OWNetworkProtocol_h
 #define OWNetworkProtocol_h
 
-@protocol OWNetworkHandler <NSObject>
+@protocol OWNetworkHandlerProtocol <NSObject>
 
-- (void)downloadHandler;
+@required
+- (id)fetch;
 
 @end
 
