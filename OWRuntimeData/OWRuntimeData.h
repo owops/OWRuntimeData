@@ -51,18 +51,30 @@ typedef void(^OWObjectBlock)(id data);
 
  @param anObject object
  @param aKey key
- @return success
  */
-+ (BOOL)setObject:(id)anObject forKey:(NSString *)aKey;
-- (BOOL)setObject:(id)anObject forKey:(NSString *)aKey;
++ (void)setObject:(id)anObject forKey:(NSString *)aKey;
+- (void)setObject:(id)anObject forKey:(NSString *)aKey;
+
+/**
+ delete object with key
+
+ @param aKey key
+ @return deletedObject
+ */
++ (id)deleteObjectForKey:(NSString *)aKey;
+- (id)deleteObjectForKey:(NSString *)aKey;
 
 /**
  how to load data if data is not exist
 
  @param handler network handler
+ @param deltaTime cache deltaTime(seconds)
  @param aKey key
  @return success
  */
++ (BOOL)registerHandler:(id<OWNetworkHandlerProtocol>)handler cache:(NSInteger)deltaTime forKey:(NSString *)aKey;
+- (BOOL)registerHandler:(id<OWNetworkHandlerProtocol>)handler cache:(NSInteger)deltaTime forKey:(NSString *)aKey;
+//default deltaTime : always
 + (BOOL)registerHandler:(id<OWNetworkHandlerProtocol>)handler forKey:(NSString *)aKey;
 - (BOOL)registerHandler:(id<OWNetworkHandlerProtocol>)handler forKey:(NSString *)aKey;
 

@@ -13,9 +13,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 typedef id(^OWDataFunction)(id __nullable request);
 
-typedef NS_ENUM(NSInteger, CACHE_DELTATIME) {
-    CACHE_DELTATIME_ALWAYS = 0,
-    CACHE_DELTATIME_DISABLE = -1,
+typedef NS_ENUM(NSInteger, OW_CACHE_DELTATIME) {
+    OW_CACHE_DELTATIME_ALWAYS = 0,
+    OW_CACHE_DELTATIME_DISABLE = -1,
 };
 
 @interface OWRuntimeDataValue : NSObject
