@@ -79,22 +79,24 @@ static OWRuntimeData *_sharedManager = nil;
         if([value deltaTime] == CACHE_DELTATIME_DISABLE) {
             forceFetch = YES;
         }
-        id<OWNetworkHandlerProtocol> handler;
-        if([value networkHandler]) { //优先取当前handler
-            handler = [value networkHandler];
-        } else if([[self config] handler]) {
-            handler = [[self config] handler];
-        }
-        if(handler && [handler conformsToProtocol:@protocol(OWNetworkHandlerProtocol)]) {
-            //fetch放置于新的子线程去做，同时阻塞当前线程，因为数据需要保证优先获取，因此将该线程优先级调整为高
-            dispatch_semaphore_t signal = dispatch_semaphore_create(0);
-            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
-                id response = [handler fetch];
-                [self setObject:response forKey:aKey];
-                result = response;
-                dispatch_semaphore_signal(signal);
-            });
-            dispatch_semaphore_wait(signal, dispatch_time(DISPATCH_TIME_NOW, [[self config] waiting] * NSEC_PER_SEC));
+        if(![value data] || forceFetch) {
+            id<OWNetworkHandlerProtocol> handler;
+            if([value networkHandler]) { //优先取当前handler
+                handler = [value networkHandler];
+            } else if([[self config] handler]) {
+                handler = [[self config] handler];
+            }
+            if(handler && [handler conformsToProtocol:@protocol(OWNetworkHandlerProtocol)]) {
+                //fetch放置于新的子线程去做，同时阻塞当前线程，因为数据需要保证优先获取，因此将该线程优先级调整为高
+                dispatch_semaphore_t signal = dispatch_semaphore_create(0);
+                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+                    id response = [handler fetch];
+                    [self setObject:response forKey:aKey];
+                    result = response;
+                    dispatch_semaphore_signal(signal);
+                });
+                dispatch_semaphore_wait(signal, dispatch_time(DISPATCH_TIME_NOW, [[self config] waiting] * NSEC_PER_SEC));
+            }
         }
         return [value data];
     }
